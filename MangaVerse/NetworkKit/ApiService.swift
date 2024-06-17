@@ -4,12 +4,8 @@ final class ApiService {
     private let httpClient: HTTPClient
     private let codableHelper: CodableHelper
     
-    private enum ApiServiceError: Error {
-        case invalidHttpResponse
-    }
-    
     init(
-        httpClient: HTTPClient = NetworkSession(),
+        httpClient: HTTPClient = URLSessionHTTPClient(),
         codableHelper: CodableHelper = CodableHelper()
     ) {
         self.httpClient = httpClient
@@ -18,29 +14,20 @@ final class ApiService {
     
     // MARK: - Public Methods
     
-    func request<Response: Decodable>(url: String, httpMethod: HTTPMethod = .get) async throws -> Response {
-        let (data, response) = try await httpClient.request(url: url, httpMethod: httpMethod, httpBody: nil)
+    func request<D: Decodable, E: Encodable>(url: String, httpMethod: HTTPMethod = .get, payload: E? = nil) async throws -> D {
+        let (data, response) = try await httpClient.request(
+            url: url,
+            httpMethod: httpMethod.rawValue,
+            httpBody: try payload.flatMap { httpMethod != .get
+                ? try codableHelper.encodeObject(object: $0)
+                : nil
+            }
+        )
         
-        guard response.statusCode >= 200 else {
-            throw ApiServiceError.invalidHttpResponse
+        guard (200 ..< 400) ~= response.statusCode else {
+            throw NetworkError(message: "Invalid status code", statusCode: response.statusCode)
         }
         
-        let decodedObject: Response = try codableHelper.decodeNetworkObject(from: data)
-        
-        return decodedObject
-    }
-    
-    func request<DecodableObject: Decodable, EncodableObject: Encodable>(url: String, httpMethod: HTTPMethod = .post, object: EncodableObject) async throws -> DecodableObject {
-        
-        let encodedObject = try codableHelper.encodeObject(object: object.self)
-        let (data, response) = try await httpClient.request(url: url, httpMethod: httpMethod, httpBody: encodedObject)
-        
-        guard response.statusCode >= 200 else {
-            throw ApiServiceError.invalidHttpResponse
-        }
-        
-        let decodedObject: DecodableObject = try codableHelper.decodeNetworkObject(from: data)
-        
-        return decodedObject
+        return try codableHelper.decodeNetworkObject(from: data)
     }
 }
