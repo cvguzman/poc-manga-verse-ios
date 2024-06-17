@@ -1,14 +1,9 @@
 import Foundation
 
-final class NetworkSession: HTTPClient {
+final class URLSessionHTTPClient: HTTPClient {
     // MARK: - Properties
     
     private let session: URLSession
-    
-    private enum NetworkSessionError: Error {
-        case invalidURL
-        case invalidResponse
-    }
     
     init(session: URLSession = .shared) {
         self.session = session
@@ -16,16 +11,19 @@ final class NetworkSession: HTTPClient {
         
     // MARK: - Public Methods
         
-    func request(url: String, httpMethod: HTTPMethod, httpBody: Data?) async throws -> (Data, HTTPURLResponse) {
+    func request(url: String, httpMethod: String, httpBody: Data?) async throws -> (Data, HTTPURLResponse) {
         guard let url = URL(string: url) else {
-            throw NetworkSessionError.invalidURL
+            throw NetworkError(message: "Could not retrieve URL: \(url)")
         }
         
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod
+        urlRequest.httpBody = httpBody
+        
         let (data, response) = try await session.data(for: urlRequest)
         
         guard let response = response as? HTTPURLResponse else {
-            throw NetworkSessionError.invalidResponse
+            throw NetworkError(message: "Could not retrieve a valid response: \(response)")
         }
         return (data, response)
     }
