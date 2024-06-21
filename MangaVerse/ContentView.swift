@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  MangaVerse
-//
-//  Created by Cynthia Guzman on 10-06-24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
