@@ -1,6 +1,6 @@
 import Foundation
 
-final class CodableHelper {
+public final class CodableHelper {
     // MARK: - Properties
     
     private let decoder: JSONDecoder
@@ -16,7 +16,7 @@ final class CodableHelper {
     
     // MARK: - Public Methods
     
-    func decodeNetworkObject<D: Decodable>(from data: Data) throws -> D {
+    public func decodeNetworkObject<D: Decodable>(from data: Data) throws -> D {
         do {
             let decodedObject = try decoder.decode(D.self, from: data)
             return decodedObject
@@ -25,7 +25,7 @@ final class CodableHelper {
         }
     }
     
-    func encodeObject<E: Encodable>(object: E) throws -> Data {
+    public func encodeObject<E: Encodable>(object: E) throws -> Data {
         do {
             let encodedObject = try encoder.encode(object.self)
             return encodedObject
