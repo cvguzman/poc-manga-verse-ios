@@ -1,9 +1,9 @@
-class DomainBase<E> {
-    private(set) var baseURL: String = {
+open class DomainBase<E> {
+    public let baseURL: String = {
         "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
     }()
     
-    func url(for endpoint: E) -> String {
+    open func url(for endpoint: E) -> String {
         fatalError("Must override")
     }
 }

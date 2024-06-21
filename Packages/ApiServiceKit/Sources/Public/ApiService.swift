@@ -1,6 +1,6 @@
 import Foundation
 
-final class ApiService {
+public final class ApiService {
     // MARK: - Properties
     
     private let httpClient: HTTPClient
@@ -16,7 +16,7 @@ final class ApiService {
     
     // MARK: - Public Methods
     
-    func request<D: Decodable>(url: String, httpMethod: HTTPMethod = .get, payload: Data? = nil) async throws -> D {
+    public func request<D: Decodable>(url: String, httpMethod: HTTPMethod = .get, payload: Data? = nil) async throws -> D {
         let (data, response) = try await httpClient.request(
             url: url,
             httpMethod: httpMethod.rawValue,

@@ -1,4 +1,4 @@
-protocol ApiServiceBaseProtocol {
+public protocol ApiServiceBaseProtocol {
     associatedtype E
     
     var domain: DomainBase<E> { get }
