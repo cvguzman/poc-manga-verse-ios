@@ -14,8 +14,8 @@
 		2692FD842C29F3EA00A8AA26 /* MVNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 2692FD832C29F3EA00A8AA26 /* MVNetwork */; };
 		26D4BF442C24F77900DA3BDD /* HomeNetworkDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */; };
 		26D4BF462C24FBB200DA3BDD /* MangaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF452C24FBB200DA3BDD /* MangaModel.swift */; };
-		26E5B41D2C23BCE000522FE9 /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41C2C23BCE000522FE9 /* HomeDataSource.swift */; };
-		26E5B41F2C23BCFA00522FE9 /* HomeDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41E2C23BCFA00522FE9 /* HomeDataSourceProtocol.swift */; };
+		26E5B41D2C23BCE000522FE9 /* HomeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */; };
+		26E5B41F2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41E2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift */; };
 		26E5B42A2C23CC3E00522FE9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B4292C23CC3E00522FE9 /* Endpoint.swift */; };
 		26E5B42D2C23CCCC00522FE9 /* Endpoint+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B42C2C23CCCC00522FE9 /* Endpoint+Home.swift */; };
 		26E5B4312C23CE3B00522FE9 /* MangaListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B4302C23CE3B00522FE9 /* MangaListModel.swift */; };
@@ -29,8 +29,8 @@
 		264637742C17B5750036FA0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkDomain.swift; sourceTree = "<group>"; };
 		26D4BF452C24FBB200DA3BDD /* MangaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaModel.swift; sourceTree = "<group>"; };
-		26E5B41C2C23BCE000522FE9 /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
-		26E5B41E2C23BCFA00522FE9 /* HomeDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSourceProtocol.swift; sourceTree = "<group>"; };
+		26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataSource.swift; sourceTree = "<group>"; };
+		26E5B41E2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		26E5B4292C23CC3E00522FE9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		26E5B42C2C23CCCC00522FE9 /* Endpoint+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Home.swift"; sourceTree = "<group>"; };
 		26E5B4302C23CE3B00522FE9 /* MangaListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaListModel.swift; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				26E5B42B2C23CCA200522FE9 /* NetworkConfiguration */,
-				26E5B41C2C23BCE000522FE9 /* HomeDataSource.swift */,
-				26E5B41E2C23BCFA00522FE9 /* HomeDataSourceProtocol.swift */,
+				26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */,
+				26E5B41E2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 				26D4BF442C24F77900DA3BDD /* HomeNetworkDomain.swift in Sources */,
 				264637702C17B5740036FA0C /* ContentView.swift in Sources */,
 				2646376E2C17B5740036FA0C /* MangaVerseApp.swift in Sources */,
-				26E5B41F2C23BCFA00522FE9 /* HomeDataSourceProtocol.swift in Sources */,
-				26E5B41D2C23BCE000522FE9 /* HomeDataSource.swift in Sources */,
+				26E5B41F2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift in Sources */,
+				26E5B41D2C23BCE000522FE9 /* HomeRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
