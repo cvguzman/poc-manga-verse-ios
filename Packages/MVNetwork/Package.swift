@@ -2,15 +2,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "ApiServiceKit",
+    name: "MVNetwork",
     platforms: [.iOS(.v17)],
     products: [
         .library(
-            name: "ApiServiceKit",
-            targets: ["ApiServiceKit"]),
+            name: "MVNetwork",
+            targets: ["MVNetwork"]),
     ],
     targets: [
         .target(
-            name: "ApiServiceKit")
+            name: "MVNetwork")
     ]
 )

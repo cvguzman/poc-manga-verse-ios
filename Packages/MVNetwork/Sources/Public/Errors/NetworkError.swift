@@ -1,4 +1,4 @@
-struct NetworkError: Error {
+public struct NetworkError: Error {
     let message: String
     let statusCode: Int?
     

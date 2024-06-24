@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		264637702C17B5740036FA0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646376F2C17B5740036FA0C /* ContentView.swift */; };
 		264637722C17B5750036FA0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264637712C17B5750036FA0C /* Assets.xcassets */; };
 		264637752C17B5750036FA0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264637742C17B5750036FA0C /* Preview Assets.xcassets */; };
-		268CBBD42C25072F0098372E /* ApiServiceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 268CBBD32C25072F0098372E /* ApiServiceKit */; };
+		2692FD842C29F3EA00A8AA26 /* MVNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 2692FD832C29F3EA00A8AA26 /* MVNetwork */; };
 		26D4BF442C24F77900DA3BDD /* HomeNetworkDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */; };
 		26D4BF462C24FBB200DA3BDD /* MangaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF452C24FBB200DA3BDD /* MangaModel.swift */; };
 		26E5B41D2C23BCE000522FE9 /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41C2C23BCE000522FE9 /* HomeDataSource.swift */; };
@@ -27,7 +27,6 @@
 		2646376F2C17B5740036FA0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		264637712C17B5750036FA0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264637742C17B5750036FA0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		268CBBD22C2507130098372E /* ApiServiceKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ApiServiceKit; sourceTree = "<group>"; };
 		26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkDomain.swift; sourceTree = "<group>"; };
 		26D4BF452C24FBB200DA3BDD /* MangaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaModel.swift; sourceTree = "<group>"; };
 		26E5B41C2C23BCE000522FE9 /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
@@ -42,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				268CBBD42C25072F0098372E /* ApiServiceKit in Frameworks */,
+				2692FD842C29F3EA00A8AA26 /* MVNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +51,6 @@
 		264637612C17B5740036FA0C = {
 			isa = PBXGroup;
 			children = (
-				2694B4432C2500EC00373C71 /* Packages */,
 				2646376C2C17B5740036FA0C /* MangaVerse */,
 				2646376B2C17B5740036FA0C /* Products */,
 				266DDC452C2503430057A954 /* Frameworks */,
@@ -93,14 +91,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2694B4432C2500EC00373C71 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				268CBBD22C2507130098372E /* ApiServiceKit */,
-			);
-			path = Packages;
 			sourceTree = "<group>";
 		};
 		26E5B4172C23BC7100522FE9 /* Home */ = {
@@ -181,7 +171,7 @@
 			);
 			name = MangaVerse;
 			packageProductDependencies = (
-				268CBBD32C25072F0098372E /* ApiServiceKit */,
+				2692FD832C29F3EA00A8AA26 /* MVNetwork */,
 			);
 			productName = MangaVerse;
 			productReference = 2646376A2C17B5740036FA0C /* MangaVerse.app */;
@@ -211,6 +201,9 @@
 				Base,
 			);
 			mainGroup = 264637612C17B5740036FA0C;
+			packageReferences = (
+				2692FD822C29F3EA00A8AA26 /* XCLocalSwiftPackageReference "Packages/MVNetwork" */,
+			);
 			productRefGroup = 2646376B2C17B5740036FA0C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -450,10 +443,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		2692FD822C29F3EA00A8AA26 /* XCLocalSwiftPackageReference "Packages/MVNetwork" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/MVNetwork;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		268CBBD32C25072F0098372E /* ApiServiceKit */ = {
+		2692FD832C29F3EA00A8AA26 /* MVNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ApiServiceKit;
+			productName = MVNetwork;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

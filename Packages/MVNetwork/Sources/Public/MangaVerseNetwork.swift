@@ -1,6 +1,6 @@
 import Foundation
 
-public final class ApiService {
+public final class MangaVerseNetwork {
     // MARK: - Properties
     
     private let httpClient: HTTPClient
