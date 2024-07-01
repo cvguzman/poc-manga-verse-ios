@@ -12,6 +12,12 @@
 		264637722C17B5750036FA0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264637712C17B5750036FA0C /* Assets.xcassets */; };
 		264637752C17B5750036FA0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264637742C17B5750036FA0C /* Preview Assets.xcassets */; };
 		2692FD842C29F3EA00A8AA26 /* MVNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 2692FD832C29F3EA00A8AA26 /* MVNetwork */; };
+		26AA7C762C2DF2FC008C0FD7 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C752C2DF2FC008C0FD7 /* HomeRepository.swift */; };
+		26AA7C782C2DF391008C0FD7 /* HomeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C772C2DF391008C0FD7 /* HomeRepositoryProtocol.swift */; };
+		26AA7C7B2C2DF79B008C0FD7 /* FetchMangaListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C7A2C2DF79B008C0FD7 /* FetchMangaListUseCase.swift */; };
+		26AA7C7E2C2DFAEC008C0FD7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C7D2C2DFAEC008C0FD7 /* HomeViewModel.swift */; };
+		26AA7C812C2DFC99008C0FD7 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C802C2DFC99008C0FD7 /* HomeViewModelProtocol.swift */; };
+		26AA7C832C2E01AA008C0FD7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA7C822C2E01AA008C0FD7 /* HomeView.swift */; };
 		26D4BF442C24F77900DA3BDD /* HomeNetworkDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */; };
 		26D4BF462C24FBB200DA3BDD /* MangaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4BF452C24FBB200DA3BDD /* MangaModel.swift */; };
 		26E5B41D2C23BCE000522FE9 /* HomeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */; };
@@ -27,6 +33,12 @@
 		2646376F2C17B5740036FA0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		264637712C17B5750036FA0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264637742C17B5750036FA0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26AA7C752C2DF2FC008C0FD7 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		26AA7C772C2DF391008C0FD7 /* HomeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepositoryProtocol.swift; sourceTree = "<group>"; };
+		26AA7C7A2C2DF79B008C0FD7 /* FetchMangaListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMangaListUseCase.swift; sourceTree = "<group>"; };
+		26AA7C7D2C2DFAEC008C0FD7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		26AA7C802C2DFC99008C0FD7 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		26AA7C822C2E01AA008C0FD7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		26D4BF432C24F77900DA3BDD /* HomeNetworkDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkDomain.swift; sourceTree = "<group>"; };
 		26D4BF452C24FBB200DA3BDD /* MangaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaModel.swift; sourceTree = "<group>"; };
 		26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -93,9 +105,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		26AA7C732C2DF270008C0FD7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				26AA7C752C2DF2FC008C0FD7 /* HomeRepository.swift */,
+				26AA7C772C2DF391008C0FD7 /* HomeRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		26AA7C742C2DF280008C0FD7 /* RemoteDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				26E5B41E2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift */,
+				26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */,
+			);
+			path = RemoteDataSource;
+			sourceTree = "<group>";
+		};
+		26AA7C792C2DF72B008C0FD7 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				26AA7C7A2C2DF79B008C0FD7 /* FetchMangaListUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		26AA7C7C2C2DFAAE008C0FD7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				26AA7C7D2C2DFAEC008C0FD7 /* HomeViewModel.swift */,
+				26AA7C802C2DFC99008C0FD7 /* HomeViewModelProtocol.swift */,
+				26AA7C822C2E01AA008C0FD7 /* HomeView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		26E5B4172C23BC7100522FE9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				26AA7C7C2C2DFAAE008C0FD7 /* UI */,
 				26E5B42E2C23CE0600522FE9 /* Domain */,
 				26E5B4182C23BCB200522FE9 /* Data */,
 			);
@@ -105,9 +154,9 @@
 		26E5B4182C23BCB200522FE9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				26AA7C742C2DF280008C0FD7 /* RemoteDataSource */,
+				26AA7C732C2DF270008C0FD7 /* Repository */,
 				26E5B42B2C23CCA200522FE9 /* NetworkConfiguration */,
-				26E5B41C2C23BCE000522FE9 /* HomeRemoteDataSource.swift */,
-				26E5B41E2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -140,6 +189,7 @@
 		26E5B42E2C23CE0600522FE9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				26AA7C792C2DF72B008C0FD7 /* UseCases */,
 				26E5B42F2C23CE1E00522FE9 /* Models */,
 			);
 			path = Domain;
@@ -230,13 +280,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AA7C762C2DF2FC008C0FD7 /* HomeRepository.swift in Sources */,
 				26E5B4312C23CE3B00522FE9 /* MangaListModel.swift in Sources */,
 				26E5B42D2C23CCCC00522FE9 /* Endpoint+Home.swift in Sources */,
+				26AA7C832C2E01AA008C0FD7 /* HomeView.swift in Sources */,
+				26AA7C812C2DFC99008C0FD7 /* HomeViewModelProtocol.swift in Sources */,
 				26D4BF462C24FBB200DA3BDD /* MangaModel.swift in Sources */,
 				26E5B42A2C23CC3E00522FE9 /* Endpoint.swift in Sources */,
 				26D4BF442C24F77900DA3BDD /* HomeNetworkDomain.swift in Sources */,
 				264637702C17B5740036FA0C /* ContentView.swift in Sources */,
 				2646376E2C17B5740036FA0C /* MangaVerseApp.swift in Sources */,
+				26AA7C7E2C2DFAEC008C0FD7 /* HomeViewModel.swift in Sources */,
+				26AA7C782C2DF391008C0FD7 /* HomeRepositoryProtocol.swift in Sources */,
+				26AA7C7B2C2DF79B008C0FD7 /* FetchMangaListUseCase.swift in Sources */,
 				26E5B41F2C23BCFA00522FE9 /* HomeRemoteDataSourceProtocol.swift in Sources */,
 				26E5B41D2C23BCE000522FE9 /* HomeRemoteDataSource.swift in Sources */,
 			);
