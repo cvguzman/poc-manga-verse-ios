@@ -1,17 +1,17 @@
 import Foundation
 
-final class URLSessionHTTPClient: HTTPClient {
+public final class URLSessionHTTPClient: HTTPClient {
     // MARK: - Properties
     
     private let session: URLSession
     
-    init(session: URLSession = .shared) {
+    public init(session: URLSession = .shared) {
         self.session = session
     }
         
     // MARK: - Public Methods
         
-    func request(url: String, httpMethod: String, httpBody: Data?) async throws -> (Data, HTTPURLResponse) {
+    public func request(url: String, httpMethod: String, httpBody: Data?) async throws -> (Data, HTTPURLResponse) {
         guard let url = URL(string: url) else {
             throw NetworkError(message: "Could not retrieve URL: \(url)")
         }

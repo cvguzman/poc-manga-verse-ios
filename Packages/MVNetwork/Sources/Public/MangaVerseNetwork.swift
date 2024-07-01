@@ -6,7 +6,7 @@ public final class MangaVerseNetwork {
     private let httpClient: HTTPClient
     private let codableHelper: CodableHelper
     
-    init(
+    public init(
         httpClient: HTTPClient = URLSessionHTTPClient(),
         codableHelper: CodableHelper = CodableHelper()
     ) {

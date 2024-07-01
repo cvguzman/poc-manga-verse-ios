@@ -3,6 +3,8 @@ open class DomainBase<E> {
         "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
     }()
     
+    public init() {}
+    
     open func url(for endpoint: E) -> String {
         fatalError("Must override")
     }
