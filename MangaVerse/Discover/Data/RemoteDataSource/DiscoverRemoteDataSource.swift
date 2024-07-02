@@ -1,6 +1,6 @@
 import MVNetwork
 
-final class HomeRemoteDataSource: RemoteDataSourceBase<Endpoint.Home>, HomeRemoteDataSourceProtocol {
+final class DiscoverRemoteDataSource: RemoteDataSourceBase<Endpoint.Discover>, DiscoverRemoteDataSourceProtocol {
     func fetchMangaList(from page: Int) async throws -> MangaListModel {
         let url = String(format: domain.url(for: .mangaList), String(page))
         let model: MangaListModel = try await network.request(url: url)

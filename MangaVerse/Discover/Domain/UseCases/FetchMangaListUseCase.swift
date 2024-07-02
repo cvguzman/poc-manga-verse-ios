@@ -1,7 +1,7 @@
 struct FetchMangaListUseCase {
-    private let repository: HomeRepositoryProtocol
+    private let repository: DiscoverRepositoryProtocol
     
-    init(repository: HomeRepositoryProtocol) {
+    init(repository: DiscoverRepositoryProtocol) {
         self.repository = repository
     }
     

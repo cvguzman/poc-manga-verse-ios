@@ -1,7 +1,7 @@
-struct HomeRepository: HomeRepositoryProtocol {
-    private let remoteDataSource: HomeRemoteDataSourceProtocol
+struct DiscoverRepository: DiscoverRepositoryProtocol {
+    private let remoteDataSource: DiscoverRemoteDataSourceProtocol
     
-    init(remoteDataSource: HomeRemoteDataSourceProtocol) {
+    init(remoteDataSource: DiscoverRemoteDataSourceProtocol) {
         self.remoteDataSource = remoteDataSource
     }
     

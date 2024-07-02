@@ -5,13 +5,9 @@ struct MangaVerseApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ViewFactory.view(type: .home)
+                ViewFactory.view(type: .discover)
                     .tabItem {
-                        Label("Browse", systemImage: "house")
-                    }
-                Text("Account")
-                    .tabItem {
-                        Label("Account", systemImage: "magnifyingglass")
+                        Label("Discover", systemImage: "star")
                     }
             }
         }

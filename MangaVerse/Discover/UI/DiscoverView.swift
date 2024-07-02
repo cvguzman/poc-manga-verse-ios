@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct HomeView: View {
-    @State var viewModel: HomeViewModel
+struct DiscoverView: View {
+    @State var viewModel: DiscoverViewModel
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: DiscoverViewModel) {
         self.viewModel = viewModel
     }
     
@@ -22,5 +22,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    ViewFactory.view(type: .home)
+    ViewFactory.view(type: .discover)
 }

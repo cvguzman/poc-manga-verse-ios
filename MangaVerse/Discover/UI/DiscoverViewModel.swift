@@ -2,7 +2,7 @@ import Observation
 import Foundation
 
 @Observable
-final class HomeViewModel: HomeViewModelProtocol {
+final class DiscoverViewModel: DiscoverViewModelProtocol {
     private let useCase: FetchMangaListUseCase
     var mangas = [MangaModel]()
 

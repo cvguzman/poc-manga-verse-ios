@@ -1,5 +1,5 @@
 extension Endpoint {
-    enum Home: String {
+    enum Discover: String {
         case mangaList = "/list/mangas?page=%@&per=20"
     }
 }

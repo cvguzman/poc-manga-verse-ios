@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct ViewFactory {
-    private static var homeDIContainer = HomeDIContainer()
+    private static var discoverDIContainer = DiscoverDIContainer()
     
     @ViewBuilder
     static func view(type: ViewType) -> some View {
         switch type {
         default:
-            HomeView(
-                viewModel: HomeViewModel(
-                    useCase: homeDIContainer.fetchMangaList
+            DiscoverView(
+                viewModel: DiscoverViewModel(
+                    useCase: discoverDIContainer.fetchMangaList
                 )
             )
         }
