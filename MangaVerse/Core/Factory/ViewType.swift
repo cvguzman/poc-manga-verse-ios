@@ -1,0 +1,3 @@
+enum ViewType {
+    case home
+}

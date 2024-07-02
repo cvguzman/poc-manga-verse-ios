@@ -4,7 +4,7 @@ import SwiftUI
 struct MangaVerseApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ViewFactory.view(type: .home)
         }
     }
 }

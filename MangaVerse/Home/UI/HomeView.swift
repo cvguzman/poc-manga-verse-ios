@@ -1,5 +1,4 @@
 import SwiftUI
-import MVNetwork
 
 struct HomeView: View {
     @State var viewModel: HomeViewModel
@@ -22,16 +21,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(
-        viewModel: HomeViewModel(
-            useCase: FetchMangaListUseCase(
-                repository: HomeRepository(
-                    remoteDataSource: HomeRemoteDataSource(
-                        domain: HomeNetworkDomain(),
-                        network: MangaVerseNetwork()
-                    )
-                )
-            )
-        )
-    )
+    ViewFactory.view(type: .home)
 }
