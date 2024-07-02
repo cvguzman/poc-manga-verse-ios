@@ -4,7 +4,16 @@ import SwiftUI
 struct MangaVerseApp: App {
     var body: some Scene {
         WindowGroup {
-            ViewFactory.view(type: .home)
+            TabView {
+                ViewFactory.view(type: .home)
+                    .tabItem {
+                        Label("Browse", systemImage: "house")
+                    }
+                Text("Account")
+                    .tabItem {
+                        Label("Account", systemImage: "magnifyingglass")
+                    }
+            }
         }
     }
 }

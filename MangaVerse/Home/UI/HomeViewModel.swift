@@ -11,6 +11,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func onAppear() async {
+        guard mangas.isEmpty else { return }
         do {
             let mangaList = try await useCase.execute(from: 1)
             mangas = mangaList.items

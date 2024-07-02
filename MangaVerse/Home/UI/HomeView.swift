@@ -10,14 +10,15 @@ struct HomeView: View {
     var body: some View {
         List {
             ForEach(viewModel.mangas) { manga in
-                Text(manga.title)
+                if let title = manga.title {
+                    Text(title)
+                }
             }
         }
         .task {
             await viewModel.onAppear()
         }
     }
-    
 }
 
 #Preview {
