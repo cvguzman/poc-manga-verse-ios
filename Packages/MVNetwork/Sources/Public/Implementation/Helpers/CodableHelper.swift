@@ -6,7 +6,7 @@ public final class CodableHelper {
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
     
-    init(
+    public init(
         decoder: JSONDecoder = JSONDecoder(),
         encoder: JSONEncoder = JSONEncoder()
     ) {
