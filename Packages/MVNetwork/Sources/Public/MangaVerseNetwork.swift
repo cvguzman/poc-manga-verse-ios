@@ -3,16 +3,10 @@ import Foundation
 public final class MangaVerseNetwork {
     // MARK: - Properties
     
-    private let httpClient: HTTPClient
-    private let codableHelper: CodableHelper
+    private let httpClient: HTTPClient = URLSessionHTTPClient()
+    private let codableHelper = CodableHelper()
     
-    init(
-        httpClient: HTTPClient = URLSessionHTTPClient(),
-        codableHelper: CodableHelper = CodableHelper()
-    ) {
-        self.httpClient = httpClient
-        self.codableHelper = codableHelper
-    }
+    public init() {}
     
     // MARK: - Public Methods
     
