@@ -4,7 +4,12 @@ import SwiftUI
 struct MangaVerseApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                DiscoverView()
+                    .tabItem {
+                        Label("Discover", systemImage: "star.fill")
+                    }
+            }
         }
     }
 }
