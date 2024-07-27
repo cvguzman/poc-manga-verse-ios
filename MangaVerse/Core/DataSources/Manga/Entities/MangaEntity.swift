@@ -1,4 +1,4 @@
-struct MangaEntity: Decodable, Identifiable {
+struct MangaEntity: Decodable, Hashable, Identifiable {
     let id: Int
     let mainPicture: String
     let title: String
@@ -17,5 +17,13 @@ struct MangaEntity: Decodable, Identifiable {
     private enum CodingKeys: String, CodingKey {
         case id, mainPicture, title, genres, demographics, themes, authors, chapters, volumes, startDate, endDate, status, score
         case synopsis = "sypnosis"
+    }
+
+    static func == (lhs: MangaEntity, rhs: MangaEntity) -> Bool {
+        return lhs.id == rhs.id && lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
