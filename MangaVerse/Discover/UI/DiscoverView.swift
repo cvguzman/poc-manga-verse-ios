@@ -1,39 +1,26 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    @Environment(DiscoverViewModel.self) private var viewModel
+
     var body: some View {
         NavigationView(content: {
-            List {
-                NavigationLink {
-                    EmptyView()
-                } label: {
-                    Button(action: {}, label: {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Monster")
-                                    .font(.title)
-                                    .bold()
-                                Text("Sub")
-                                    .font(.title2)
-                            }
-                            .foregroundStyle(.white)
-                            Spacer()
+            ScrollView {
+                LazyVGrid(columns:[GridItem(.adaptive(minimum: 120))], content: {
+                    ForEach(viewModel.mangas) { manga in
+                        NavigationLink {
+                            EmptyView()
+                        } label: {
+                            CardView(model: manga)
                         }
-                        .padding()
-                    })
-                }
-                .background(
-                    ZStack {
-                        AsyncImage(url: URL(string: "https://cdn.myanimelist.net/images/manga/1/157897l.jpg"), scale: 1.6)
-                            .scaledToFill()
-                            .opacity(0.6)
-                        LinearGradient(gradient: Gradient(colors: [.black, .gray, .white, .white]), startPoint: .leading, endPoint: .trailing)
-                            .ignoresSafeArea()
-                            .opacity(0.8)
                     }
-                )
+                })
+                .padding(.horizontal)
             }
             .navigationTitle("Discover")
+            .task {
+                await viewModel.fetchMangas()
+            }
         })
     }
 }

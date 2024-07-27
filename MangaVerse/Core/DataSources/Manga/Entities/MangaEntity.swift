@@ -1,4 +1,4 @@
-struct MangaEntity: Decodable {
+struct MangaEntity: Decodable, Identifiable {
     let id: Int
     let mainPicture: String
     let title: String
