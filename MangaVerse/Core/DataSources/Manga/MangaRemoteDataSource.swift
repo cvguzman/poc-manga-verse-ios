@@ -1,7 +1,19 @@
 import MVNetwork
+import Foundation
 
-final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaRemoteDataSourceProtocol {
-    func fetchMangas(from type: MangaListType) async throws -> PaginatedMangaListEntity {
+final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDataSource {
+    private let mapper: MangaEntityMapper
+
+    init(mapper: MangaEntityMapper, domain: DomainBase<E>, network: MangaVerseNetwork) {
+        self.mapper = mapper
+        super.init(domain: domain, network: network)
+    }
+    
+    required init(domain: DomainBase<E>, network: MangaVerseNetwork) {
+        fatalError("init(domain:network:) has not been implemented")
+    }
+    
+    func fetchMangas(from type: MangaListType) async throws -> [MangaModel] {
         let url: String
         switch type {
         case .page(let pageNumber):
@@ -12,7 +24,16 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaRe
             url = prepareCategoryURL(from: category)
         }
         let entity: PaginatedMangaListEntity = try await network.request(url: url)
-        return entity
+        var model = [MangaModel]()
+        for entity in entity.items {
+            do {
+                let imageData: Data = try await network.request(url: cleanMainPictureURL(entity.mainPicture))
+                model.append(mapper.map(value: entity, imageData: imageData))
+            } catch {
+                model.append(mapper.map(value: entity, imageData: nil))
+            }
+        }
+        return model
     }
     
     func fetchCategories(by category: MangaCategoryType) async throws -> [String] {
@@ -42,5 +63,9 @@ extension MangaRemoteDataSource {
             endpoint = (.searchByDemographic, value)
         }
         return String(format: domain.url(for: endpoint.0), endpoint.1)
+    }
+
+    private func cleanMainPictureURL(_ url: String) -> String {
+        url.replacingOccurrences(of: "\"", with: String())
     }
 }

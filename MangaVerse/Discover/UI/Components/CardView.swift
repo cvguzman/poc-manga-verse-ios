@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct CardView: View {
-    let model: MangaEntity
+    let item: MangaModel
 
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: cleanCoverURL(model.mainPicture)), scale: 1.6)
+            Image(uiImage: item.mainPicture)
+                .resizable()
                 .scaledToFill()
-                .frame(width: 180, height: 200)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .mask {
                     LinearGradient(
                         colors: [.clear, .black],
@@ -15,24 +16,24 @@ struct CardView: View {
                         endPoint: .center)
                 }
             VStack(alignment: .leading) {
-                Text(model.title)
-                    .font(.title2)
+                Text(item.title)
+                    .font(.subheadline)
+                    .foregroundStyle(.primary)
                     .bold()
-                Text("\(model.score)")
-                    .font(.title3)
+                    .multilineTextAlignment(.leading)
+                Text(String(format: "%.2f", item.score))
+                    .font(.footnote)
+                    .foregroundStyle(.green)
                     .foregroundStyle(.placeholder)
             }
             .padding([.horizontal, .bottom])
         }
+        .frame(maxHeight: 250)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .overlay {
             RoundedRectangle(cornerRadius: 18)
                 .stroke(.placeholder, lineWidth: 1)
         }
-    }
-
-    func cleanCoverURL(_ url: String) -> String {
-        url.replacingOccurrences(of: "\"", with: String())
     }
 }
