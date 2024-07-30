@@ -23,4 +23,18 @@ public final class MangaVerseNetwork {
         
         return try codableHelper.decodeNetworkObject(from: data)
     }
+
+    public func request(url: String, httpMethod: HTTPMethod = .get, payload: Data? = nil) async throws -> Data {
+        let (data, response) = try await httpClient.request(
+            url: url,
+            httpMethod: httpMethod.rawValue,
+            httpBody: payload
+        )
+
+        guard (200 ..< 400) ~= response.statusCode else {
+            throw NetworkError(message: "Invalid status code", statusCode: response.statusCode)
+        }
+
+        return data
+    }
 }

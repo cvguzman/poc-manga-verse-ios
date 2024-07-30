@@ -1,6 +1,8 @@
-struct MangaEntity: Decodable {
+import UIKit
+
+struct MangaModel: Identifiable, Equatable {
     let id: Int
-    let mainPicture: String
+    let mainPicture: UIImage
     let title: String
     let genres: [MangaGenreEntity]
     let demographics: [MangaDemographicEntity]
@@ -13,9 +15,8 @@ struct MangaEntity: Decodable {
     let endDate: String?
     let status: String
     let score: Double
-    
-    private enum CodingKeys: String, CodingKey {
-        case id, mainPicture, title, genres, demographics, themes, authors, chapters, volumes, startDate, endDate, status, score
-        case synopsis = "sypnosis"
+
+    static func == (lhs: MangaModel, rhs: MangaModel) -> Bool {
+        return lhs.id == rhs.id
     }
 }
