@@ -14,10 +14,10 @@ struct MangaEntityMapper {
             chapters: value.chapters,
             volumes: value.volumes,
             synopsis: value.synopsis,
-            startDate: value.startDate,
-            endDate: value.endDate,
-            status: value.status,
-            score: value.score
+            startDate: formatDate(value.startDate),
+            endDate: formatDate(value.endDate),
+            status: formatStatus(value.status),
+            score: String(format: "%.2f", value.score)
         )
     }
 }
@@ -28,5 +28,23 @@ extension MangaEntityMapper {
             return UIImage()
         }
         return UIImage(data: data) ?? UIImage()
+    }
+
+    private func formatDate(_ dateString: String?) -> String? {
+        guard let dateString = dateString else {
+            return nil
+        }
+        do {
+            let date = try Date(dateString, strategy: .iso8601)
+            return date.formatted(date: .abbreviated, time: .omitted)
+        } catch {
+            return nil
+        }
+    }
+
+    private func formatStatus(_ status: String) -> String {
+        status
+            .replacingOccurrences(of: "_", with: " ")
+            .uppercased()
     }
 }

@@ -14,7 +14,7 @@ struct MangaModel: Identifiable, Equatable {
     let startDate: String?
     let endDate: String?
     let status: String
-    let score: Double
+    let score: String
 
     static func == (lhs: MangaModel, rhs: MangaModel) -> Bool {
         return lhs.id == rhs.id
