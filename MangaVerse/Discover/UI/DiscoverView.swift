@@ -31,11 +31,11 @@ struct DiscoverView: View {
                             } label: {
                                 CardView(item: item)
                             }
-    //                            .sheet(isPresented: $isSheetPresented) {
-    //                                if let item = viewModel.selectedItem {
-    //                                    CardDetailView(item: item)
-    //                                }
-    //                            }
+                            .sheet(isPresented: $isSheetPresented) {
+                                if let item = viewModel.selectedItem {
+                                    CardDetailView(item: item)
+                                }
+                            }
                             .onAppear {
                                 viewModel.loadContentIfNeeded(item)
                             }

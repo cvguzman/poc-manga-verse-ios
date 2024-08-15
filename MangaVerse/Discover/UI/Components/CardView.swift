@@ -18,12 +18,13 @@ struct CardView: View {
             VStack(alignment: .leading) {
                 Text(item.title)
                     .font(.subheadline)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(.black)
                     .bold()
                     .multilineTextAlignment(.leading)
-                Text(String(format: "%.2f", item.score))
+                Text(item.score)
                     .font(.footnote)
-                    .foregroundStyle(.green)
+                    .bold()
+                    .foregroundStyle(setColorBasedOnScore(item.score))
                     .foregroundStyle(.placeholder)
             }
             .padding([.horizontal, .bottom])
@@ -34,6 +35,20 @@ struct CardView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 18)
                 .stroke(.placeholder, lineWidth: 1)
+        }
+    }
+
+    private func setColorBasedOnScore(_ score: String) -> Color {
+        guard let score = Double(score) else {
+            return .gray
+        }
+        switch score {
+        case _ where score >= 7:
+            return .green
+        case _ where score >= 4:
+            return .yellow
+        default:
+            return .red
         }
     }
 }
