@@ -3,20 +3,21 @@ import MVNetwork
 
 @main
 struct MangaVerseApp: App {
-    @State private var discoverViewModel = DiscoverViewModel(
-        dataSource: MangaRemoteDataSource(
-            mapper: MangaEntityMapper(),
-            domain: MangaNetwork(),
-            network: MangaVerseNetwork()
-        )
-    )
+    @State private var environment = MangaVerseEnvironment()
+
     var body: some Scene {
         WindowGroup {
             TabView {
                 DiscoverView()
-                    .environment(discoverViewModel)
+                    .environment(environment.paginatedListViewModel)
                     .tabItem {
                         Label("Discover", systemImage: "star.fill")
+                    }
+                CategoryListView()
+                    .environment(environment.categoryListViewModel)
+                    .environment(environment.paginatedListViewModel)
+                    .tabItem {
+                        Label("Categories", systemImage: "list.bullet")
                     }
             }
         }
