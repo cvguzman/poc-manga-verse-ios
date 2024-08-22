@@ -23,6 +23,7 @@
 		267B5D032C4332C100CBA932 /* MangaThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B5D022C4332C100CBA932 /* MangaThemeEntity.swift */; };
 		267B5D072C4348FB00CBA932 /* MangaCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B5D062C4348FB00CBA932 /* MangaCategoryType.swift */; };
 		267B5D092C434DD500CBA932 /* MangaListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B5D082C434DD500CBA932 /* MangaListType.swift */; };
+		26B8FB972C76DA960032ACC1 /* MVNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 26B8FB962C76DA960032ACC1 /* MVNetwork */; };
 		26C7A5E82C587FCB00676BA2 /* PaginatedListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C7A5E72C587FCB00676BA2 /* PaginatedListMapper.swift */; };
 		26C7A5ED2C5880C600676BA2 /* MangaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C7A5EC2C5880C600676BA2 /* MangaModel.swift */; };
 		26D611B72C71937A0027EA81 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D611B62C71937A0027EA81 /* CategoryListView.swift */; };
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B8FB972C76DA960032ACC1 /* MVNetwork in Frameworks */,
 				267B5D012C43315800CBA932 /* MVNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +279,7 @@
 			name = MangaVerse;
 			packageProductDependencies = (
 				267B5D002C43315800CBA932 /* MVNetwork */,
+				26B8FB962C76DA960032ACC1 /* MVNetwork */,
 			);
 			productName = MangaVerse;
 			productReference = 2646376A2C17B5740036FA0C /* MangaVerse.app */;
@@ -576,6 +579,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		267B5D002C43315800CBA932 /* MVNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MVNetwork;
+		};
+		26B8FB962C76DA960032ACC1 /* MVNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MVNetwork;
 		};
