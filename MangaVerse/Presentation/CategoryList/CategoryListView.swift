@@ -1,8 +1,13 @@
 import SwiftUI
 
 struct CategoryListView: View {
-    @Environment(CategoryListViewModel.self) private var categoryViewModel
-    @Environment(PaginatedListViewModel.self) private var paginatedListViewModel
+    private let environment: MangaVerseEnvironment
+    private let categoryViewModel: CategoryListViewModel
+
+    init(environment: MangaVerseEnvironment) {
+        self.environment = environment
+        categoryViewModel = environment.categoryListViewModel
+    }
 
     var body: some View {
         NavigationStack {
@@ -18,13 +23,16 @@ struct CategoryListView: View {
                         if row.children == nil {
                             NavigationLink(row.title, value: row)
                         } else {
-                            Text(row.title)
+                            Label {
+                                Text(row.title)
+                            } icon: {
+                                Image(systemName: "book.circle")
+                            }
                         }
                     }
                     .navigationDestination(for: CategoryModel.self, destination: { category in
-                        PaginatedListView(loaderType: .byCategory(category.title.lowercased(), category.categoryType))
+                        PaginatedListView(viewModel: environment.paginatedListViewModel, loaderType: .byCategory(category.title.lowercased(), category.categoryType))
                             .navigationTitle("\(category.categoryType.rawValue.capitalized)/\(category.title)")
-                            .environment(paginatedListViewModel)
                     })
                     .listStyle(SidebarListStyle())
                 case .error:

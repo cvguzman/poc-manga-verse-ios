@@ -8,14 +8,11 @@ struct MangaVerseApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                DiscoverView()
-                    .environment(environment.paginatedListViewModel)
+                DiscoverView(environment: environment)
                     .tabItem {
                         Label("Discover", systemImage: "star.fill")
                     }
-                CategoryListView()
-                    .environment(environment.categoryListViewModel)
-                    .environment(environment.paginatedListViewModel)
+                CategoryListView(environment: environment)
                     .tabItem {
                         Label("Categories", systemImage: "list.bullet")
                     }
