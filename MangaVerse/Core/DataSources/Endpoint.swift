@@ -7,10 +7,10 @@ enum Endpoint {
         case themes = "/list/themes"
 
         // MARK: - Search
-        case searchByWord = "/search/mangasContains/%@"
-        case searchByGenre = "/list/mangaByGenre/%@"
-        case searchByDemographic = "/list/mangaByDemographic/%@"
-        case searchByTheme = "/list/mangaByTheme/%@"
+        case searchByWord = "/search/mangasContains/%@?page=%@&per=20"
+        case searchByGenre = "/list/mangaByGenre/%@?page=%@&per=20"
+        case searchByDemographic = "/list/mangaByDemographic/%@?page=%@&per=20"
+        case searchByTheme = "/list/mangaByTheme/%@?page=%@&per=20"
         case searchByAuthor = "/list/mangaByAuthor/%@?page=1&per=20"
     }
 }
