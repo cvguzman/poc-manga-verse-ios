@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PaginatedListView: View {
-    @Environment(PaginatedListViewModel.self) private var viewModel
+    let viewModel: PaginatedListViewModel
     @State private var isSheetPresented = false
     let loaderType: PaginatedListLoaderType
 

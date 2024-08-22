@@ -1,18 +1,16 @@
 import SwiftUI
 
 struct DiscoverView: View {
-    @Environment(PaginatedListViewModel.self) private var paginatedListViewModel
+    let environment: MangaVerseEnvironment
 
     var body: some View {
         NavigationStack {
-            PaginatedListView(loaderType: .byPage)
-                .environment(paginatedListViewModel)
+            PaginatedListView(viewModel: environment.paginatedListViewModel, loaderType: .byPage)
                 .navigationTitle("Discover")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                            PaginatedListView(loaderType: .byPage)
-                                .environment(paginatedListViewModel)
+                           EmptyView()
                                 .navigationTitle("Search")
                         } label: {
                             Image(systemName: "magnifyingglass.circle.fill")
