@@ -53,7 +53,8 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
 }
 
 extension MangaRemoteDataSource {
-    private func prepareCategoryURL(from category: MangaCategoryType, pageNumber: String) -> String {
+    private func prepareCategoryURL(from category: MangaCategoryType, pageNumber: String) -> String
+    {
         let endpoint: (Endpoint.Manga, String)
         switch category {
         case .genre(let value):

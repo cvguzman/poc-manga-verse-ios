@@ -9,19 +9,26 @@ struct DiscoverView: View {
         NavigationStack {
             Group {
                 if !readyForSearch {
-                    PaginatedListView(viewModel: environment.paginatedListViewModel, loaderType: .byPage)
+                    PaginatedListView(
+                        viewModel: environment.paginatedListViewModel, loaderType: .byPage)
                 } else {
-                    PaginatedListView(viewModel: environment.paginatedListViewModel, loaderType: .byMatchingWord(searchText))
+                    PaginatedListView(
+                        viewModel: environment.paginatedListViewModel,
+                        loaderType: .byMatchingWord(searchText))
                 }
             }
             .navigationTitle("Discover")
             .searchable(
                 text: $searchText,
                 placement: .navigationBarDrawer(displayMode: .always),
-                prompt: "Search by name or any word")
-            .onChange(of: searchText, {
-                readyForSearch = false
-            })
+                prompt: "Search by name or any word"
+            )
+            .onChange(
+                of: searchText,
+                {
+                    readyForSearch = false
+                }
+            )
             .onSubmit(of: .search) {
                 readyForSearch = true
             }
