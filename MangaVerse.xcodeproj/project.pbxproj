@@ -91,7 +91,7 @@
 		262C22C92C76EF37008F2B6B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				267B5CEE2C4328C700CBA932 /* Entities */,
+				267B5CEE2C4328C700CBA932 /* Entity */,
 				267B5CEA2C43280800CBA932 /* MangaRemoteDataSource.swift */,
 				267B5CEC2C43281500CBA932 /* MangaDataSource.swift */,
 			);
@@ -162,7 +162,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		267B5CEE2C4328C700CBA932 /* Entities */ = {
+		267B5CEE2C4328C700CBA932 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				267B5CEF2C4328D600CBA932 /* PaginatedMangaListEntity.swift */,
@@ -172,7 +172,7 @@
 				267B5CFE2C432F9F00CBA932 /* MangaDemographicEntity.swift */,
 				267B5D022C4332C100CBA932 /* MangaThemeEntity.swift */,
 			);
-			path = Entities;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		267B5D052C4348E400CBA932 /* Enum */ = {

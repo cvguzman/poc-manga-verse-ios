@@ -41,7 +41,9 @@ struct PaginatedListView: View {
                     await viewModel.loadContent(by: loaderType)
                 }
         case .emptyContent:
-            ErrorView(text: "Cant find any Manga with that name, please try again...", systemNameImage: "books.vertical.fill")
+            ErrorView(
+                text: "Cant find any Manga with that name, please try again...",
+                systemNameImage: "books.vertical.fill")
         case .error:
             ErrorView {
                 Task {

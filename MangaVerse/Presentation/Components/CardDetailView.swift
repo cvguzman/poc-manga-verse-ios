@@ -12,46 +12,51 @@ struct CardDetailView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     Text(item.title)
-                        .font(.title2)
+                        .font(.title)
                         .bold()
                     Group {
                         HStack {
                             if let startDate = item.startDate {
-                                Text("start date: \(startDate)")
+                                Text("Start date: \(startDate)")
                             }
                             if let endDate = item.endDate {
-                                Text("end date: \(endDate)")
+                                Text("End date: \(endDate)")
                             }
                         }
                         HStack {
                             if let volumes = item.volumes {
-                                Text("volumes: \(volumes)")
+                                Text("Volumes: \(volumes)")
                             }
                             if let chapters = item.chapters {
-                                Text("chapters: \(chapters)")
+                                Text("Chapters: \(chapters)")
                             }
                         }
                         HStack {
                             Text("score: \(item.score)")
-                            Text("status: \(item.status)")
+                            Text("status: \(item.status.capitalized)")
                         }
                     }
-                    .font(.callout)
-                    .foregroundStyle(.placeholder)
+                    .foregroundStyle(.foreground)
                     Text("Authors")
-                        .font(.callout)
+                        .font(.title3)
                         .bold()
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(item.authors, id: \.id) { author in
-                                Label(
-                                    "\(author.firstName) \(author.lastName)\n\(author.role)",
-                                    systemImage: "person.fill"
-                                )
-                                .padding()
+                                HStack {
+                                    Image(systemName: "person.fill")
+                                    VStack(alignment: .leading) {
+                                        Text("\(author.firstName) \(author.lastName)")
+                                            .bold()
+                                        Text(author.role)
+                                            .italic()
+                                    }
+                                }
+                                .font(.caption)
                                 .foregroundStyle(.white)
+                                .padding(6)
                                 .background(
-                                    .placeholder,
+                                    .blue,
                                     in: RoundedRectangle(cornerRadius: 8)
                                 )
                             }
@@ -59,45 +64,46 @@ struct CardDetailView: View {
                     }
                     .scrollIndicators(.hidden)
                     Text("Genres")
-                        .font(.callout)
+                        .font(.title3)
                         .bold()
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(item.genres, id: \.id) { genre in
                                 Text(genre.genre)
-                                    .padding()
+                                    .font(.caption)
                                     .foregroundStyle(.white)
+                                    .padding(6)
                                     .background(
-                                        .placeholder,
-                                        in: Capsule()
+                                        .blue,
+                                        in: RoundedRectangle(cornerRadius: 8)
                                     )
                             }
                         }
                     }
                     .scrollIndicators(.hidden)
                     Text("Demographics")
-                        .font(.callout)
+                        .font(.title3)
                         .bold()
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(item.demographics, id: \.id) { demographic in
                                 Text(demographic.demographic)
-                                    .padding()
+                                    .font(.caption)
                                     .foregroundStyle(.white)
+                                    .padding(6)
                                     .background(
-                                        .placeholder,
-                                        in: Capsule()
+                                        .blue,
+                                        in: RoundedRectangle(cornerRadius: 8)
                                     )
                             }
                         }
                     }
                     .scrollIndicators(.hidden)
                     Text("Synopsis")
-                        .font(.callout)
+                        .font(.title3)
                         .bold()
                     if let synopsis = item.synopsis {
                         Text(synopsis)
-                            .font(.caption)
                     }
                     Spacer()
                 }
