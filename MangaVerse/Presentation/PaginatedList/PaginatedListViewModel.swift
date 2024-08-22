@@ -36,8 +36,14 @@ final class PaginatedListViewModel {
         do {
             let fetchType: MangaListType = setFetchType(by: loaderType)
             let content: [MangaModel] = try await dataSource.fetchMangas(from: fetchType)
-            // Check cancellation
+            if Task.isCancelled {
+                return
+            }
             await MainActor.run {
+                guard !content.isEmpty else {
+                    viewState = .emptyContent
+                    return
+                }
                 self.currentPage += 1
                 self.content.append(contentsOf: content)
                 viewState = .contentLoaded

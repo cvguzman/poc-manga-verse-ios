@@ -1,14 +1,20 @@
 import SwiftUI
 
 struct ErrorView: View {
-    let retryAction: () -> Void
+    var text: String = "Oops something went wrong"
+    var systemNameImage: String = "wrongwaysign.fill"
+    var retryAction: (() -> Void)? = nil
 
     var body: some View {
-        Text("Oops something went wrong")
-        Button {
-            retryAction()
-        } label: {
-            Text("Retry")
+        Image(systemName: systemNameImage)
+            .foregroundStyle(.gray)
+        Text(text)
+        if let retryAction {
+            Button {
+                retryAction()
+            } label: {
+                Text("Retry")
+            }
         }
     }
 }
