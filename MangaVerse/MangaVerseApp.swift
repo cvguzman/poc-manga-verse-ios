@@ -1,5 +1,5 @@
-import SwiftUI
 import MVNetwork
+import SwiftUI
 
 @main
 struct MangaVerseApp: App {

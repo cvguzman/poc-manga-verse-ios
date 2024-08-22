@@ -10,7 +10,7 @@ struct DiscoverView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                           EmptyView()
+                            EmptyView()
                                 .navigationTitle("Search")
                         } label: {
                             Image(systemName: "magnifyingglass.circle.fill")

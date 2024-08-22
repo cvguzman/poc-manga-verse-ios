@@ -9,7 +9,7 @@ struct PaginatedListView: View {
         switch viewModel.viewState {
         case .contentLoaded:
             ScrollView {
-                LazyVGrid(columns:[GridItem(.adaptive(minimum: 120))]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
                     ForEach(viewModel.content) { item in
                         Button {
                             viewModel.selectedItem = item

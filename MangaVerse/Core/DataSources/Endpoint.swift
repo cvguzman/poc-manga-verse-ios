@@ -5,7 +5,7 @@ enum Endpoint {
         case genres = "/list/genres"
         case demographics = "/list/demographics"
         case themes = "/list/themes"
-        
+
         // MARK: - Search
         case searchByWord = "/search/mangasContains/%@"
         case searchByGenre = "/list/mangaByGenre/%@"

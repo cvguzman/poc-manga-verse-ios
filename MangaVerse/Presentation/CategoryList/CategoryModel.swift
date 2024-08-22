@@ -21,6 +21,6 @@ struct CategoryModel: Identifiable, Hashable {
             title: "Demographics",
             categoryType: .demographic,
             children: nil
-        )
+        ),
     ]
 }

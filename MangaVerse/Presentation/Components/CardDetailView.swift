@@ -44,13 +44,16 @@ struct CardDetailView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(item.authors, id: \.id) { author in
-                                Label("\(author.firstName) \(author.lastName)\n\(author.role)", systemImage: "person.fill")
-                                    .padding()
-                                    .foregroundStyle(.white)
-                                    .background(
-                                        .placeholder,
-                                        in: RoundedRectangle(cornerRadius: 8)
-                                    )
+                                Label(
+                                    "\(author.firstName) \(author.lastName)\n\(author.role)",
+                                    systemImage: "person.fill"
+                                )
+                                .padding()
+                                .foregroundStyle(.white)
+                                .background(
+                                    .placeholder,
+                                    in: RoundedRectangle(cornerRadius: 8)
+                                )
                             }
                         }
                     }
@@ -102,7 +105,11 @@ struct CardDetailView: View {
             }
             .padding()
             .frame(maxWidth: 400, maxHeight: 500)
-            .background(.white, in: UnevenRoundedRectangle(topLeadingRadius: 20, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 20))
+            .background(
+                .white,
+                in: UnevenRoundedRectangle(
+                    topLeadingRadius: 20, bottomLeadingRadius: 0, bottomTrailingRadius: 0,
+                    topTrailingRadius: 20))
         }
     }
 }

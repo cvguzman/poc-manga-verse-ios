@@ -30,10 +30,18 @@ struct CategoryListView: View {
                             }
                         }
                     }
-                    .navigationDestination(for: CategoryModel.self, destination: { category in
-                        PaginatedListView(viewModel: environment.paginatedListViewModel, loaderType: .byCategory(category.title.lowercased(), category.categoryType))
-                            .navigationTitle("\(category.categoryType.rawValue.capitalized)/\(category.title)")
-                    })
+                    .navigationDestination(
+                        for: CategoryModel.self,
+                        destination: { category in
+                            PaginatedListView(
+                                viewModel: environment.paginatedListViewModel,
+                                loaderType: .byCategory(
+                                    category.title.lowercased(), category.categoryType)
+                            )
+                            .navigationTitle(
+                                "\(category.categoryType.rawValue.capitalized)/\(category.title)")
+                        }
+                    )
                     .listStyle(SidebarListStyle())
                 case .error:
                     ErrorView {

@@ -1,5 +1,5 @@
-import UIKit
 import Foundation
+import UIKit
 
 struct MangaEntityMapper {
     func map(value: MangaEntity, imageData: Data?) -> MangaModel {

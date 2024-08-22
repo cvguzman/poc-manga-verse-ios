@@ -13,9 +13,10 @@ struct MangaEntity: Decodable {
     let endDate: String?
     let status: String
     let score: Double
-    
+
     private enum CodingKeys: String, CodingKey {
-        case id, mainPicture, title, genres, demographics, themes, authors, chapters, volumes, startDate, endDate, status, score
+        case id, mainPicture, title, genres, demographics, themes, authors, chapters, volumes,
+            startDate, endDate, status, score
         case synopsis = "sypnosis"
     }
 }

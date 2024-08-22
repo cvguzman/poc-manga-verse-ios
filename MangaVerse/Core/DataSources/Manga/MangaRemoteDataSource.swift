@@ -1,5 +1,5 @@
-import MVNetwork
 import Foundation
+import MVNetwork
 
 final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDataSource {
     private let mapper: MangaEntityMapper
@@ -8,11 +8,11 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
         self.mapper = mapper
         super.init(domain: domain, network: network)
     }
-    
+
     required init(domain: DomainBase<E>, network: MangaVerseNetwork) {
         fatalError("init(domain:network:) has not been implemented")
     }
-    
+
     func fetchMangas(from type: MangaListType) async throws -> [MangaModel] {
         let url: String
         switch type {
@@ -27,7 +27,8 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
         var model = [MangaModel]()
         for entity in entity.items {
             do {
-                let imageData: Data = try await network.request(url: cleanMainPictureURL(entity.mainPicture))
+                let imageData: Data = try await network.request(
+                    url: cleanMainPictureURL(entity.mainPicture))
                 model.append(mapper.map(value: entity, imageData: imageData))
             } catch {
                 model.append(mapper.map(value: entity, imageData: nil))
@@ -35,7 +36,7 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
         }
         return model
     }
-    
+
     func fetchCategories(by category: MangaCategoryType) async throws -> [String] {
         let url: String
         switch category {
