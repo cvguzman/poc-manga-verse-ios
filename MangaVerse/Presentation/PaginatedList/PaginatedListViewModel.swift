@@ -64,15 +64,15 @@ final class PaginatedListViewModel {
             listType = .page(currentPage)
         case .byMatchingWord(let string):
             let word = string.lowercased().replacingOccurrences(of: " ", with: "_")
-            listType = .matchingWord(word)
+            listType = .matchingWord(word, currentPage)
         case .byCategory(let category, let categoryType):
             switch categoryType {
             case .genre:
-                listType = .category(.genre(category))
+                listType = .category(.genre(category), currentPage)
             case .theme:
-                listType = .category(.theme(category))
+                listType = .category(.theme(category), currentPage)
             case .demographic:
-                listType = .category(.demographic(category))
+                listType = .category(.demographic(category), currentPage)
             }
         }
         return listType

@@ -18,10 +18,10 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
         switch type {
         case .page(let pageNumber):
             url = String(format: domain.url(for: .paginatedList), String(pageNumber))
-        case .matchingWord(let word):
-            url = String(format: domain.url(for: .searchByWord), word)
-        case .category(let category):
-            url = prepareCategoryURL(from: category)
+        case .matchingWord(let word, let pageNumber):
+            url = String(format: domain.url(for: .searchByWord), word, String(pageNumber))
+        case .category(let category, let pageNumber):
+            url = prepareCategoryURL(from: category, pageNumber: String(pageNumber))
         }
         let entity: PaginatedMangaListEntity = try await network.request(url: url)
         var model = [MangaModel]()
@@ -53,7 +53,7 @@ final class MangaRemoteDataSource: RemoteDataSourceBase<Endpoint.Manga>, MangaDa
 }
 
 extension MangaRemoteDataSource {
-    private func prepareCategoryURL(from category: MangaCategoryType) -> String {
+    private func prepareCategoryURL(from category: MangaCategoryType, pageNumber: String) -> String {
         let endpoint: (Endpoint.Manga, String)
         switch category {
         case .genre(let value):
@@ -63,7 +63,7 @@ extension MangaRemoteDataSource {
         case .demographic(let value):
             endpoint = (.searchByDemographic, value)
         }
-        return String(format: domain.url(for: endpoint.0), endpoint.1)
+        return String(format: domain.url(for: endpoint.0), endpoint.1, pageNumber)
     }
 
     private func cleanMainPictureURL(_ url: String) -> String {

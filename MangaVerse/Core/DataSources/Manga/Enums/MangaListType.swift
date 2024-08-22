@@ -1,5 +1,5 @@
 enum MangaListType {
     case page(Int)
-    case matchingWord(String)
-    case category(MangaCategoryType)
+    case matchingWord(String, Int)
+    case category(MangaCategoryType, Int)
 }
