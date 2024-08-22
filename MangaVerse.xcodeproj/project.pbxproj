@@ -88,6 +88,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262C22C92C76EF37008F2B6B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				267B5CEE2C4328C700CBA932 /* Entities */,
+				267B5CEA2C43280800CBA932 /* MangaRemoteDataSource.swift */,
+				267B5CEC2C43281500CBA932 /* MangaDataSource.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		262C22CA2C76EF48008F2B6B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				26C7A5E92C5880A700676BA2 /* Model */,
+				26C7A5E62C587FBB00676BA2 /* Mapper */,
+				267B5D052C4348E400CBA932 /* Enum */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		264637612C17B5740036FA0C = {
 			isa = PBXGroup;
 			children = (
@@ -108,9 +128,10 @@
 		2646376C2C17B5740036FA0C /* MangaVerse */ = {
 			isa = PBXGroup;
 			children = (
-				26D611D42C71CEEA0027EA81 /* DI */,
-				26D611C92C71BAC20027EA81 /* Presentation */,
 				26E5B4272C23CC0D00522FE9 /* Core */,
+				262C22C92C76EF37008F2B6B /* Data */,
+				262C22CA2C76EF48008F2B6B /* Domain */,
+				26D611C92C71BAC20027EA81 /* Presentation */,
 				2646376D2C17B5740036FA0C /* MangaVerseApp.swift */,
 				264637712C17B5750036FA0C /* Assets.xcassets */,
 				264637732C17B5750036FA0C /* Preview Content */,
@@ -141,20 +162,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		267B5CE82C4327D400CBA932 /* Manga */ = {
-			isa = PBXGroup;
-			children = (
-				26C7A5E92C5880A700676BA2 /* Models */,
-				26C7A5E62C587FBB00676BA2 /* Mappers */,
-				267B5D052C4348E400CBA932 /* Enums */,
-				267B5CEE2C4328C700CBA932 /* Entities */,
-				267B5CF82C432B7600CBA932 /* MangaNetwork.swift */,
-				267B5CEA2C43280800CBA932 /* MangaRemoteDataSource.swift */,
-				267B5CEC2C43281500CBA932 /* MangaDataSource.swift */,
-			);
-			path = Manga;
-			sourceTree = "<group>";
-		};
 		267B5CEE2C4328C700CBA932 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,38 +175,29 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		267B5D042C4347B500CBA932 /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				267B5CE82C4327D400CBA932 /* Manga */,
-				26E5B4292C23CC3E00522FE9 /* Endpoint.swift */,
-			);
-			path = DataSources;
-			sourceTree = "<group>";
-		};
-		267B5D052C4348E400CBA932 /* Enums */ = {
+		267B5D052C4348E400CBA932 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
 				267B5D062C4348FB00CBA932 /* MangaCategoryType.swift */,
 				267B5D082C434DD500CBA932 /* MangaListType.swift */,
 			);
-			path = Enums;
+			path = Enum;
 			sourceTree = "<group>";
 		};
-		26C7A5E62C587FBB00676BA2 /* Mappers */ = {
+		26C7A5E62C587FBB00676BA2 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
 				26C7A5E72C587FCB00676BA2 /* PaginatedListMapper.swift */,
 			);
-			path = Mappers;
+			path = Mapper;
 			sourceTree = "<group>";
 		};
-		26C7A5E92C5880A700676BA2 /* Models */ = {
+		26C7A5E92C5880A700676BA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				26C7A5EC2C5880C600676BA2 /* MangaModel.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		26D611B42C7193550027EA81 /* CategoryList */ = {
@@ -235,14 +233,6 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		26D611D42C71CEEA0027EA81 /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				26D611D52C71CEFA0027EA81 /* MangaVerseEnvironment.swift */,
-			);
-			path = DI;
-			sourceTree = "<group>";
-		};
 		26E11D012C5571590059CA20 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +246,9 @@
 		26E5B4272C23CC0D00522FE9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				267B5D042C4347B500CBA932 /* DataSources */,
+				26D611D52C71CEFA0027EA81 /* MangaVerseEnvironment.swift */,
+				26E5B4292C23CC3E00522FE9 /* Endpoint.swift */,
+				267B5CF82C432B7600CBA932 /* MangaNetwork.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
