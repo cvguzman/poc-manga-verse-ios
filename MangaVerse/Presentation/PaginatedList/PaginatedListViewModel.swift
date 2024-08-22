@@ -57,7 +57,8 @@ final class PaginatedListViewModel {
         case .byPage:
             listType = .page(currentPage)
         case .byMatchingWord(let string):
-            listType = .matchingWord(string)
+            let word = string.lowercased().replacingOccurrences(of: " ", with: "_")
+            listType = .matchingWord(word)
         case .byCategory(let category, let categoryType):
             switch categoryType {
             case .genre:
